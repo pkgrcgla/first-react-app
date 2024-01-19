@@ -1,25 +1,17 @@
 import { useState } from "react";
 
-//import { MouseEvent } from "react";
-function ListGroup() {
-  let items = ["New York", "San Francisco", "Izmir", "London", "Paris"];
+interface Props {
+  items: string[];
+  heading: string;
+}
+function ListGroup({ items, heading }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  //event handler
-  //const handleClick = (event: MouseEvent) => console.log(event);
-  //items = [];
-  //   if (items.length == 0)
-  //     return (
-  //       <>
-  //         <h1>List</h1>
-  //         <p>No items found</p>
-  //       </>
-  //     );
+
   return (
     <>
-      <h1>List</h1>
-      {/* {items.length == 0 ? <p>No item found</p> : null} */}
-      {/* eğer ilk condition true dönüyorsa &&dan sonrasını yazdırır. eğer false dönüyorsa hiç bir şey yapmaz */}
+      <h1>{heading}</h1>
       {items.length == 0 && <p>No item found</p>}
+      {/* {props.items.length == 0 && <p>No item found</p>} */}
       <ul className="list-group">
         {items.map((item, index) => (
           <li
